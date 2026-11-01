@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "AudioShelf",
+  "version": "0.1.0",
+  "identifier": "com.example.audioshelf",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      { "label": "main", "title": "AudioShelf", "width": 1280, "height": 800, "minWidth": 640, "minHeight": 480 }
+    ],
+    "security": {
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["$AUDIO/**", "$APPDATA/**"]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "category": "Music",
+    "shortDescription": "Audiobook library manager and M4B converter",
+    "longDescription": "Scan, search and convert audiobooks. Conversion uses a bundled, LGPL FFmpeg build.",
+    "targets": ["app", "dmg", "nsis", "msi", "deb", "rpm", "appimage"],
+    "externalBin": ["binaries/ffmpeg", "binaries/ffprobe"],
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
+    "macOS": { "minimumSystemVersion": "11.0", "hardenedRuntime": true },
+    "windows": { "digestAlgorithm": "sha256", "timestampUrl": "http://timestamp.digicert.com" },
+    "linux": { "deb": { "depends": [] } }
+  }
+}

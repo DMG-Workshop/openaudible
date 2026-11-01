@@ -1,0 +1,7 @@
+target/
+node_modules/
+dist/
+src-tauri/binaries/
+src-tauri/gen/
+*.part
+.DS_Store
