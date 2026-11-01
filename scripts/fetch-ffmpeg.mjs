@@ -73,7 +73,9 @@ async function fetchTarget(triple) {
 function copyLocal(triple) {
   mkdirSync(outDir, { recursive: true });
   for (const name of ["ffmpeg", "ffprobe"]) {
-    const found = execFileSync("which", [name], { encoding: "utf8" }).trim();
+    // `where` is the Windows equivalent of `which`; it can print several matches, so take the first.
+    const lookup = process.platform === "win32" ? "where" : "which";
+    const found = execFileSync(lookup, [name], { encoding: "utf8" }).split(/\r?\n/)[0].trim();
     if (!found || !existsSync(found)) throw new Error(`${name} not on PATH`);
     const dest = join(outDir, `${name}-${triple}${exeSuffix(triple)}`);
     copyFileSync(found, dest);
