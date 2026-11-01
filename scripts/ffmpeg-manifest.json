@@ -1,0 +1,10 @@
+{
+  "_comment": "Pinned LGPL FFmpeg builds. Fill in url and sha256 for each target before a release. The fetch script refuses to run while any sha256 is empty.",
+  "version": "",
+  "targets": {
+    "aarch64-apple-darwin": { "url": "", "sha256": "", "ffmpeg": "ffmpeg", "ffprobe": "ffprobe" },
+    "x86_64-apple-darwin": { "url": "", "sha256": "", "ffmpeg": "ffmpeg", "ffprobe": "ffprobe" },
+    "x86_64-unknown-linux-gnu": { "url": "", "sha256": "", "ffmpeg": "ffmpeg", "ffprobe": "ffprobe" },
+    "x86_64-pc-windows-msvc": { "url": "", "sha256": "", "ffmpeg": "ffmpeg.exe", "ffprobe": "ffprobe.exe" }
+  }
+}
